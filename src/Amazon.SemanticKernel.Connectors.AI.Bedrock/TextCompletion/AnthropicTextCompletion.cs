@@ -1,4 +1,4 @@
-using Amazon.Bedrock;
+using Amazon.BedrockRuntime;
 using Amazon.SemanticKernel.Connectors.AI.Bedrock.BedrockSdk;
 using Microsoft.SemanticKernel.AI.TextCompletion;
 
@@ -8,10 +8,10 @@ public class AnthropicTextCompletion : AmazonBedrockClientBase<AnthropicTextComp
 {
 
     public AnthropicTextCompletion(string modelId)
-        : base("anthropic." + modelId, new AmazonBedrockClient())
+        : base("anthropic." + modelId, new AmazonBedrockRuntimeClient())
     { }
     
-    public AnthropicTextCompletion(string modelId, IAmazonBedrock bedrockApi)
+    public AnthropicTextCompletion(string modelId, IAmazonBedrockRuntime bedrockApi)
         : base("anthropic." + modelId, bedrockApi)
     { }
     

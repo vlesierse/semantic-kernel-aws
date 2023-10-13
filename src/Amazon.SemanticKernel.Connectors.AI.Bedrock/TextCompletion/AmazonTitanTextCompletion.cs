@@ -1,4 +1,4 @@
-using Amazon.Bedrock;
+using Amazon.BedrockRuntime;
 using Amazon.SemanticKernel.Connectors.AI.Bedrock.BedrockSdk;
 using Microsoft.SemanticKernel.AI.TextCompletion;
 
@@ -8,10 +8,10 @@ public class AmazonTitanTextCompletion : AmazonBedrockClientBase<AmazonTitanText
 {
 
     public AmazonTitanTextCompletion(string modelId)
-        : base("amazon." + modelId, new AmazonBedrockClient())
+        : base("amazon." + modelId, new AmazonBedrockRuntimeClient())
     { }
     
-    public AmazonTitanTextCompletion(string modelId, IAmazonBedrock bedrockApi)
+    public AmazonTitanTextCompletion(string modelId, IAmazonBedrockRuntime bedrockApi)
         : base("amazon." + modelId, bedrockApi)
     { }
     

@@ -1,6 +1,6 @@
 using System.Text.Json;
-using Amazon.Bedrock;
-using Amazon.Bedrock.Model;
+using Amazon.BedrockRuntime;
+using Amazon.BedrockRuntime.Model;
 using Microsoft.SemanticKernel.AI.TextCompletion;
 
 namespace Amazon.SemanticKernel.Connectors.AI.Bedrock.BedrockSdk;
@@ -10,9 +10,9 @@ public abstract class AmazonBedrockClientBase<TRequest, TResponse>
     where TResponse : ITextResponse
 {
     private readonly string _modelId;
-    private readonly IAmazonBedrock _bedrockApi;
+    private readonly IAmazonBedrockRuntime _bedrockApi;
     
-    protected AmazonBedrockClientBase(string modelId, IAmazonBedrock bedrockApi)
+    protected AmazonBedrockClientBase(string modelId, IAmazonBedrockRuntime bedrockApi)
     {
         _modelId = modelId;
         _bedrockApi = bedrockApi;

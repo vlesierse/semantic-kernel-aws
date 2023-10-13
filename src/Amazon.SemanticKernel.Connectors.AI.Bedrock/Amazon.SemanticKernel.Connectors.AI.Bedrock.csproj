@@ -7,10 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\AWSSDK.Bedrock\AWSSDK.Bedrock.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
+    <PackageReference Include="AWSSDK.BedrockRuntime" Version="3.7.201.5" />
     <PackageReference Include="Microsoft.SemanticKernel.Core" Version="0.17.230704.3-preview" />
   </ItemGroup>
 

@@ -4,15 +4,15 @@ using Microsoft.SemanticKernel.AI.TextCompletion;
 
 namespace Amazon.SemanticKernel.Connectors.AI.Bedrock.TextCompletion;
 
-public class AI21TextCompletion : AmazonBedrockClientBase<AI21TextCompletionRequest, AI21TextCompletionResponse>, ITextCompletion
+public class CohereTextCompletion : AmazonBedrockClientBase<CohereTextCompletionRequest, CohereTextCompletionResponse>, ITextCompletion
 {
 
-    public AI21TextCompletion(string modelId)
-        : base("ai21." + modelId, new AmazonBedrockRuntimeClient())
+    public CohereTextCompletion(string modelId)
+        : base("cohere." + modelId, new AmazonBedrockRuntimeClient())
     { }
     
-    public AI21TextCompletion(string modelId, IAmazonBedrockRuntime bedrockApi)
-        : base("ai21." + modelId, bedrockApi)
+    public CohereTextCompletion(string modelId, IAmazonBedrockRuntime bedrockApi)
+        : base("cohere." + modelId, bedrockApi)
     { }
     
     public Task<IReadOnlyList<ITextResult>> GetCompletionsAsync(string text, CompleteRequestSettings requestSettings,
@@ -27,9 +27,9 @@ public class AI21TextCompletion : AmazonBedrockClientBase<AI21TextCompletionRequ
         throw new NotImplementedException();
     }
 
-    protected override AI21TextCompletionRequest CreateTextCompletionRequest(string text, CompleteRequestSettings settings)
+    protected override CohereTextCompletionRequest CreateTextCompletionRequest(string text, CompleteRequestSettings settings)
     {
-        return new AI21TextCompletionRequest
+        return new CohereTextCompletionRequest
         {
             Prompt = text,
             MaxTokens = settings.MaxTokens,
